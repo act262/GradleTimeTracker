@@ -41,6 +41,10 @@ class TimeTracker implements TaskExecutionListener, BuildListener {
 
     @Override
     void buildFinished(BuildResult result) {
+        if (costTimeMap.isEmpty()) {
+            return
+        }
+
         println "Task spend time:"
         printf "%7sms All Task\n", costTimeMap.values().sum()
 

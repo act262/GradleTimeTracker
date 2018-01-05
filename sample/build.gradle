@@ -3,7 +3,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath "io.micro.gradle:GradleTimeTracker:1.0.0-SNAPSHOT"
+        classpath "io.micro.gradle:GradleTimeTracker:1.0.1-SNAPSHOT"
     }
 }
 
