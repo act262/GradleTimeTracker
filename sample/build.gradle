@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath "io.micro.gradle:GradleTimeTracker:1.0.0-SNAPSHOT"
+    }
+}
+
+group 'io.micro.gradle'
+version '1.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'io.micro.gradle'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}

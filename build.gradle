@@ -16,7 +16,7 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 
 group 'io.micro.gradle'
-version '1.0.0-SNAPSHOT'
+version '1.0.1-SNAPSHOT'
 
 pluginBundle {
     website = 'http://www.gradle.org/'
