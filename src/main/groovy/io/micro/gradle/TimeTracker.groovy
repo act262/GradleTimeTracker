@@ -42,7 +42,7 @@ class TimeTracker implements TaskExecutionListener, BuildListener {
     @Override
     void buildFinished(BuildResult result) {
         println "Task spend time:"
-        printf "%7sms\n", costTimeMap.values().sum()
+        printf "%7sms All Task\n", costTimeMap.values().sum()
 
         costTimeMap.each { key, value ->
             printf "%7sms  %s\n", value, key
