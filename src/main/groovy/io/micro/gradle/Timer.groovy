@@ -1,7 +1,5 @@
 package io.micro.gradle
 
-import org.gradle.internal.time.TimeFormatting
-
 import java.util.concurrent.TimeUnit
 
 /**
@@ -13,11 +11,6 @@ class Timer {
 
     Timer() {
         reset()
-    }
-
-    String getElapsed() {
-        long elapsedMillis = getElapsedMillis()
-        return TimeFormatting.formatDurationVerbose(elapsedMillis)
     }
 
     long getElapsedMillis() {
