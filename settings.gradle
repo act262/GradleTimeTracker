@@ -1,3 +1,4 @@
 rootProject.name = 'GradleTimeTracker'
+include ':plugin'
 include ':sample'
 
