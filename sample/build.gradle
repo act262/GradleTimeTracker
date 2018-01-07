@@ -14,7 +14,8 @@ apply plugin: 'java'
 apply plugin: 'io.micro.gradle'
 
 timeTracker {
-    threshold 10
+    threshold = 1
+    includeTask = ['compileGroovy']
 }
 
 sourceCompatibility = 1.8

@@ -11,7 +11,7 @@ import org.gradle.api.tasks.TaskState
 class TimeTracker implements TaskExecutionListener, BuildListener {
 
     private Timer timer = new Timer()
-    private costTimeMap = [:]
+    private Map<Task, Long> costTimeMap = [:]
 
     private TimeTrackerExtension extension;
 
@@ -54,16 +54,29 @@ class TimeTracker implements TaskExecutionListener, BuildListener {
         // extension filter
         if (extension.threshold > 0) {
             println "Enabled time filter(threshold >= ${extension.threshold}ms)"
+            costTimeMap = costTimeMap.findAll {
+                it.value >= extension.threshold
+            }
+        }
+
+        // filter include task
+        if (extension.includeTask?.size() > 0) {
+            println "Enabled task filter"
+            costTimeMap = costTimeMap.findAll {
+                extension.includeTask.contains(it.key.name)
+            }
+        }
+
+        // maybe a empty result
+        if (costTimeMap.isEmpty()) {
+            return
         }
 
         println "Task spend time:"
         printf "%7sms All Task\n", costTimeMap.values().sum()
 
         costTimeMap.each { key, value ->
-            if (value >= extension.threshold) {
-                printf "%7sms  %s\n", value, key
-            }
-
+            printf "%7sms  %s\n", value, key
         }
     }
 }
