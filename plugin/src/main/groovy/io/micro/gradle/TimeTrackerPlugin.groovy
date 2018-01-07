@@ -10,7 +10,9 @@ class TimeTrackerPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project target) {
-        target.gradle.addListener(new TimeTracker())
+        TimeTrackerExtension extension = target.extensions
+                .create("timeTracker", TimeTrackerExtension)
+        target.gradle.addListener(new TimeTracker(extension))
     }
 
 }
