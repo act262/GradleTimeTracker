@@ -10,7 +10,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "io.micro.gradle:GradleTimeTracker:1.0.1-SNAPSHOT"
+        classpath "io.micro.gradle:tracker-plugin:1.0.2-SNAPSHOT"
     }
 }
 ```
@@ -44,6 +44,16 @@ out result:
       0ms  task ':sample:assemble'
 ```
 
+custom configuration
+```groovy
+timeTracker {
+    // Add time filter
+    threshold = 1
+    // Add task filter
+    includeTask = ['compileGroovy']
+}
+```
+
 ## SAMPLE
 @see sample
 
@@ -53,5 +63,5 @@ https://plugins.gradle.org/docs/submit
 
 ## TODO
 - [ ] tracker configuration
-- [ ] time filter
-- [ ] task filter
+- [x] time filter
+- [x] task filter

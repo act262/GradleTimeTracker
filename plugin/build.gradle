@@ -16,10 +16,11 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 
 group 'io.micro.gradle'
-version '1.0.1-SNAPSHOT'
+version '1.0.2-SNAPSHOT'
+jar.baseName = "tracker-plugin"
 
 pluginBundle {
-    website = 'http://www.gradle.org/'
+    website = 'https://github.com/act262/GradleTimeTracker'
     vcsUrl = 'https://github.com/act262/GradleTimeTracker'
     description = 'Gradle task execution time'
     tags = ['gradle', 'task']
@@ -28,9 +29,13 @@ pluginBundle {
         trackerPlugin {
             id = 'io.micro.gradle'
             displayName = 'GradleTimeTracker'
+            description = 'Time tracker '
         }
     }
-
+    mavenCoordinates {
+        groupId = "io.micro.gradle"
+        artifactId = "tracker-plugin"
+    }
 }
 
 sourceCompatibility = 1.8
