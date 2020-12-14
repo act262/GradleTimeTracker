@@ -3,20 +3,28 @@
 ## USAGE
 ### 1. apply this plugin
 config dependencies inside `build.gradle`
+
+Using the plugins DSL:
 ```
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "io.micro.gradle:tracker-plugin:1.0.2-SNAPSHOT"
-    }
+plugins {
+  id "io.micro.gradle" version "1.0.3"
 }
 ```
-then apply plugin
+
+Using legacy plugin application:
 ```
-apply plugin: 'io.micro.gradle'
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "io.micro.gradle:tracker-plugin:1.0.3"
+  }
+}
+
+apply plugin: "io.micro.gradle"
 ```
 
 ### 2. execute task and display each task execute time

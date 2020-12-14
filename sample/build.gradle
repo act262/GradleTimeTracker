@@ -1,13 +1,5 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "io.micro.gradle:tracker-plugin:1.0.2-SNAPSHOT"
-    }
+plugins {
+    id "io.micro.gradle" version "1.0.3"
 }
 
 group 'io.micro.gradle'
@@ -17,8 +9,8 @@ apply plugin: 'java'
 apply plugin: 'io.micro.gradle'
 
 timeTracker {
-    threshold = 1
-    includeTask = ['compileGroovy']
+//    threshold = 1
+//    includeTask = ['compileGroovy']
 }
 
 sourceCompatibility = 1.8
